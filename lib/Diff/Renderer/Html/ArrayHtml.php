@@ -179,7 +179,7 @@ class ArrayHtml extends AbstractRenderer
 		$lines = array_map(array($this, 'ExpandTabs'), $lines);
 		$lines = array_map(array($this, 'HtmlSafe'), $lines);
 		foreach($lines as &$line) {
-			$line = preg_replace('# ( +)|^ #e', "\$this->fixSpaces('\\1')", $line);
+            $line = preg_replace_callback('# ( +)|^ #', __CLASS__."::fixSpaces", $line);
 		}
 		return $lines;
 	}
@@ -187,11 +187,15 @@ class ArrayHtml extends AbstractRenderer
 	/**
 	 * Replace a string containing spaces with a HTML representation using &nbsp;.
 	 *
-	 * @param string $spaces The string of spaces.
+	 * @param array $match The string of spaces.
 	 * @return string The HTML representation of the string.
 	 */
-	function fixSpaces($spaces='')
+	function fixSpaces($match)
 	{
+        $spaces = "";
+        if (count($match[0])) {
+            $spaces = $match[0];
+        }
 		$count = strlen($spaces);
 		if($count == 0) {
 			return '';
