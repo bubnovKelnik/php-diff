@@ -2,6 +2,7 @@
     "name": "scotteh/php-diff",
     "type": "library",
     "description": "A modern comprehensive library for generating differences between two hashable objects (strings or arrays).",
+    "license": "BSD-3-Clause",
     "authors": [
         {
             "name": "Chris Boulton",
