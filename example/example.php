@@ -16,10 +16,10 @@
 
 		// Include the diff class
 		use PHPDiff\Diff;
-		use PHPDiff\Diff\Renderer\Html\SideBySide as DiffSideBySideHtml;
-		use PHPDiff\Diff\Renderer\Html\Inline as DiffInlineHtml;
-		use PHPDiff\Diff\Renderer\Text\Unified as DiffUnifiedText;
-		use PHPDiff\Diff\Renderer\Text\Context as DiffContextText;
+		use PHPDiff\Diff\Renderer\Html\SideBySideHtml as DiffSideBySideHtml;
+		use PHPDiff\Diff\Renderer\Html\InlineHtml as DiffInlineHtml;
+		use PHPDiff\Diff\Renderer\Text\UnifiedText as DiffUnifiedText;
+		use PHPDiff\Diff\Renderer\Text\ContextText as DiffContextText;
 
 		// Include two sample files for comparison
 		$a = explode("\n", file_get_contents(dirname(__FILE__).'/a.txt'));
