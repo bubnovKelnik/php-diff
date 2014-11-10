@@ -1,7 +1,7 @@
 {
     "name": "scotteh/php-diff",
     "type": "library",
-    "description": "A comprehensive library for generating differences between two hashable objects (strings or arrays).",
+    "description": "A modern comprehensive library for generating differences between two hashable objects (strings or arrays).",
     "authors": [
         {
             "name": "Chris Boulton",
