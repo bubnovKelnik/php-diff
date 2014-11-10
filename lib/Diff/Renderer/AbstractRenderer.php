@@ -40,7 +40,9 @@
  * @link http://github.com/chrisboulton/php-diff
  */
 
-abstract class Diff_Renderer_Abstract
+namespace PHPDiff\Diff\Renderer;
+
+abstract class AbstractRenderer
 {
 	/**
 	 * @var object Instance of the diff class that this renderer is generating the rendered diff for.

@@ -43,6 +43,11 @@
  * @link http://github.com/chrisboulton/php-diff
  */
 
+namespace PHPDiff;
+
+use \PHPDiff\Diff\SequenceMatcher;
+use \PHPDiff\Diff\Renderer\AbstractRenderer;
+
 class Diff
 {
 	/**
@@ -98,7 +103,7 @@ class Diff
 	 * @param object $renderer An instance of the rendering object to use for generating the diff.
 	 * @return mixed The generated diff. Exact return value depends on the rendered.
 	 */
-	public function render(Diff_Renderer_Abstract $renderer)
+	public function render(AbstractRenderer $renderer)
 	{
 		$renderer->diff = $this;
 		return $renderer->render();
@@ -171,8 +176,7 @@ class Diff
 			return $this->groupedCodes;
 		}
 
-		require_once dirname(__FILE__).'/Diff/SequenceMatcher.php';
-		$sequenceMatcher = new Diff_SequenceMatcher($this->a, $this->b, null, $this->options);
+		$sequenceMatcher = new SequenceMatcher($this->a, $this->b, null, $this->options);
 		$this->groupedCodes = $sequenceMatcher->getGroupedOpcodes($this->options['context']);
 		return $this->groupedCodes;
 	}

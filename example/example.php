@@ -11,8 +11,15 @@
 		<hr />
 		<?php
 
+		// Use your autoloader of choice. In this case composers.
+		require 'vendor/autoload.php';
+
 		// Include the diff class
-		require_once dirname(__FILE__).'/../lib/Diff.php';
+		use PHPDiff\Diff;
+		use PHPDiff\Diff\Renderer\Html\SideBySide as DiffSideBySideHtml;
+		use PHPDiff\Diff\Renderer\Html\Inline as DiffInlineHtml;
+		use PHPDiff\Diff\Renderer\Text\Unified as DiffUnifiedText;
+		use PHPDiff\Diff\Renderer\Text\Context as DiffContextText;
 
 		// Include two sample files for comparison
 		$a = explode("\n", file_get_contents(dirname(__FILE__).'/a.txt'));
@@ -32,8 +39,7 @@
 		<?php
 
 		// Generate a side by side diff
-		require_once dirname(__FILE__).'/../lib/Diff/Renderer/Html/SideBySide.php';
-		$renderer = new Diff_Renderer_Html_SideBySide;
+		$renderer = new DiffSideBySideHtml;
 		echo $diff->Render($renderer);
 
 		?>
@@ -41,8 +47,7 @@
 		<?php
 
 		// Generate an inline diff
-		require_once dirname(__FILE__).'/../lib/Diff/Renderer/Html/Inline.php';
-		$renderer = new Diff_Renderer_Html_Inline;
+		$renderer = new DiffInlineHtml;
 		echo $diff->render($renderer);
 
 		?>
@@ -50,8 +55,7 @@
 		<pre><?php
 
 		// Generate a unified diff
-		require_once dirname(__FILE__).'/../lib/Diff/Renderer/Text/Unified.php';
-		$renderer = new Diff_Renderer_Text_Unified;
+		$renderer = new DiffUnifiedText;
 		echo htmlspecialchars($diff->render($renderer));
 
 		?>
@@ -60,8 +64,7 @@
 		<pre><?php
 
 		// Generate a context diff
-		require_once dirname(__FILE__).'/../lib/Diff/Renderer/Text/Context.php';
-		$renderer = new Diff_Renderer_Text_Context;
+		$renderer = new DiffContextText;
 		echo htmlspecialchars($diff->render($renderer));
 		?>
 		</pre>

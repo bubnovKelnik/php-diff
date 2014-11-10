@@ -40,9 +40,11 @@
  * @link http://github.com/chrisboulton/php-diff
  */
 
-require_once dirname(__FILE__).'/../Abstract.php';
+namespace PHPDiff\Diff\Renderer\Text;
 
-class Diff_Renderer_Text_Unified extends Diff_Renderer_Abstract
+use PHPDiff\Diff\Renderer\AbstractRenderer;
+
+class UnifiedText extends AbstractRenderer
 {
 	/**
 	 * Render and return a unified diff.
