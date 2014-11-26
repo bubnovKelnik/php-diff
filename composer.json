@@ -9,6 +9,10 @@
             "homepage": "http://github.com/chrisboulton"
         }
     ],
+    "type": "git",
+    "version": "1.0.0",
+    "license": "MIT",
+    "minimum-stability" : "dev",
     "autoload": {
         "psr-4": {
            "PHPDiff\\": "lib/"
