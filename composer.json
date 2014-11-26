@@ -1,6 +1,6 @@
 {
     "name": "bubnovKelnik/php-diff",
-    "type": "library",
+    "type": "git",
     "description": "A modern comprehensive library for generating differences between two hashable objects (strings or arrays).",
     "license": "BSD-3-Clause",
     "authors": [
@@ -9,7 +9,6 @@
             "homepage": "http://github.com/chrisboulton"
         }
     ],
-    "type": "git",
     "version": "1.0.0",
     "license": "MIT",
     "minimum-stability" : "dev",
